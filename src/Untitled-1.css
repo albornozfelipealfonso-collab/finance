@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Feature Graphic</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        
+        .instructions {
+            max-width: 800px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-graphic {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #06b6d4 75%, #0891b2 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 70px;
+            box-sizing: border-box;
+            border-radius: 0; /* Sin bordes para el archivo final */
+            margin: 20px 0;
+        }
+        
+        .decorative-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(6, 214, 160, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(247, 37, 133, 0.05) 0%, transparent 50%);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            opacity: 0.08;
+            font-size: 60px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-icon:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+        
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 12%;
+            animation-delay: 6s;
+        }
+        
+        .floating-icon:nth-child(4) {
+            bottom: 30%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            33% { transform: translateY(-15px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(10px) rotate(240deg) scale(0.9); }
+        }
+        
+        .content-section {
+            flex: 1;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .app-title {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #ffffff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .app-subtitle {
+            font-size: 26px;
+            margin-bottom: 28px;
+            opacity: 0.95;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            font-weight: 500;
+        }
+        
+        .features-container {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .feature-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 16px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .visual-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .phone-container {
+            position: relative;
+            transform: rotate(-5deg);
+            animation: phoneFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes phoneFloat {
+            0%, 100% { transform: rotate(-5deg) translateY(0px); }
+            50% { transform: rotate(-3deg) translateY(-10px); }
+        }
+        
+        .phone-mockup {
+            width: 300px;
+            height: 420px;
+            background: linear-gradient(145deg, #2d3748, #1a202c);
+            border-radius: 35px;
+            padding: 25px 20px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            border: 3px solid #4a5568;
+            position: relative;
+        }
+        
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #4a5568;
+            border-radius: 2px;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 25px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow: hidden;
+        }
+        
+        .screen-header {
+            height: 45px;
+            background: rgba(6, 182, 212, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            gap: 10px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        
+        .app-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(45deg, #06d6a0, #4361ee);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .header-text {
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        
+        .stat-card {
+            height: 70px;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 0 12px 0 30px;
+        }
+        
+        .stat-card.balance {
+            background: linear-gradient(135deg, #059669, #0d9488);
+        }
+        
+        .stat-card.income {
+            background: linear-gradient(135deg, #0891b2, #0284c7);
+        }
+        
+        .stat-card.expenses {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+        }
+        
+        .stat-card.savings {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .stat-value {
+            font-size: 16px;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .chart-area {
+            height: 90px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: end;
+            padding: 10px;
+            gap: 4px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #06d6a0, #4361ee);
+            border-radius: 2px 2px 0 0;
+            opacity: 0.8;
+        }
+        
+        .chart-bar:nth-child(1) { height: 60%; }
+        .chart-bar:nth-child(2) { height: 80%; }
+        .chart-bar:nth-child(3) { height: 45%; }
+        .chart-bar:nth-child(4) { height: 90%; }
+        .chart-bar:nth-child(5) { height: 70%; }
+        .chart-bar:nth-child(6) { height: 55%; }
+        
+        .bottom-nav {
+            height: 50px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .nav-item {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .nav-item.active {
+            background: #06d6a0;
+            box-shadow: 0 0 10px rgba(6, 214, 160, 0.5);
+        }
+        
+        .download-section {
+            max-width: 800px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .capture-btn {
+            background: linear-gradient(45deg, #06d6a0, #4361ee);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        
+        .capture-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .warning-box {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>🎯 Feature Graphic Listo para Google Play Store</h2>
+        <p><strong>Este diseño cumple exactamente las especificaciones de Google:</strong></p>
+        <ul>
+            <li>✅ Tamaño: 1024 x 500 píxeles</li>
+            <li>✅ Sin precios, ratings o llamadas a acción</li>
+            <li>✅ Texto legible y profesional</li>
+            <li>✅ Mockup representativo de la app</li>
+            <li>✅ Colores coherentes con FinanceFlow</li>
+        </ul>
+    </div>
+
+    <div class="feature-graphic" id="featureGraphic">
+        <div class="decorative-bg"></div>
+        
+        <div class="floating-elements">
+            <div class="floating-icon">💰</div>
+            <div class="floating-icon">📊</div>
+            <div class="floating-icon">🎯</div>
+            <div class="floating-icon">📱</div>
+        </div>
+        
+        <div class="content-section">
+            <div class="app-title">FinanceFlow</div>
+            <div class="app-subtitle">Controla tus Finanzas Personales</div>
+            
+            <div class="features-container">
+                <div class="feature-badge">
+                    <span>📊</span>
+                    <span>Dashboard Inteligente</span>
+                </div>
+                <div class="feature-badge">
+                    <span>🎯</span>
+                    <span>Metas de Ahorro</span>
+                </div>
+                <div class="feature-badge">
+                    <span>🇨🇱</span>
+                    <span>Optimizada para Chile</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="visual-section">
+            <div class="phone-container">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-header">
+                            <div class="app-icon">💰</div>
+                            <div class="header-text">FinanceFlow</div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card balance">
+                                <div class="stat-label">Balance Disponible</div>
+                                <div class="stat-value">$285.000</div>
+                            </div>
+                            <div class="stat-card income">
+                                <div class="stat-label">Ingresos</div>
+                                <div class="stat-value">$950.000</div>
+                            </div>
+                            <div class="stat-card expenses">
+                                <div class="stat-label">Gastos</div>
+                                <div class="stat-value">$565.000</div>
+                            </div>
+                            <div class="stat-card savings">
+                                <div class="stat-label">Ahorros</div>
+                                <div class="stat-value">$100.000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-area">
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                        </div>
+                        
+                        <div class="bottom-nav">
+                            <div class="nav-item active"></div>
+                            <div class="nav-item"></div>
+                            <div class="nav-item"></div>
+                            <div class="nav-item"></div>
+                            <div class="nav-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <h3>📥 Cómo descargar tu Feature Graphic</h3>
+        <p><strong>Método 1: Captura de pantalla (Recomendado)</strong></p>
+        <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+            <li>Hacer clic derecho en el diseño de arriba</li>
+            <li>Seleccionar "Inspeccionar elemento" o presionar F12</li>
+            <li>En las herramientas de desarrollador, buscar el elemento con id="featureGraphic"</li>
+            <li>Hacer clic derecho sobre el elemento → "Capturar screenshot del nodo"</li>
+            <li>Se descargará automáticamente como PNG en 1024x500px</li>
+        </ol>
+        
+        <button class="capture-btn" onclick="captureFeatureGraphic()">
+            📸 Ayuda para Capturar
+        </button>
+        
+        <div class="warning-box">
+            <strong>⚠️ Importante:</strong> Si necesitas hacer ajustes al diseño (cambiar colores, texto, etc.), puedes modificar el código CSS directamente en las herramientas de desarrollador antes de capturar.
+        </div>
+        
+        <p><strong>Método 2: Usar como referencia en Canva</strong></p>
+        <p>Puedes usar este diseño como guía para recrearlo en Canva con las mismas especificaciones.</p>
+    </div>
+
+    <div class="instructions">
+        <h3>🎨 Personalización Adicional</h3>
+        <p>Si quieres cambiar algún elemento:</p>
+        <ul>
+            <li><strong>Colores:</strong> Busca "background: linear-gradient" en el código</li>
+            <li><strong>Texto:</strong> Cambia "FinanceFlow" o "Controla tus Finanzas Personales"</li>
+            <li><strong>Features:</strong> Modifica los badges con las características que prefieras</li>
+            <li><strong>Datos del mockup:</strong> Cambia los montos por otros más representativos</li>
+        </ul>
+    </div>
+
+    <script>
+        function captureFeatureGraphic() {
+            alert(`📋 Pasos para capturar:\n\n1. Presiona F12 para abrir herramientas de desarrollador\n2. En la pestaña "Elements", busca: <div class="feature-graphic" id="featureGraphic">\n3. Clic derecho sobre ese elemento\n4. Selecciona "Capture node screenshot"\n5. Se descargará automáticamente como PNG\n\n¡El archivo resultante será exactamente 1024x500px!`);
+        }
+        
+        // Animación adicional para los elementos flotantes
+        setInterval(() => {
+            const icons = document.querySelectorAll('.floating-icon');
+            icons.forEach((icon, index) => {
+                icon.style.transform = `translateY(${Math.sin(Date.now() * 0.001 + index) * 10}px) rotate(${Math.sin(Date.now() * 0.0005 + index) * 30}deg)`;
+            });
+        }, 50);
+    </script>
+</body>
+</html>

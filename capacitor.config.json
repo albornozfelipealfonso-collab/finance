@@ -1,0 +1,26 @@
+{
+  "appId": "com.felipe.financeflow",
+  "appName": "FinanceFlow", 
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#1e293b",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "dark", 
+      "backgroundColor": "#1e293b"
+    },
+    "AdMob": {
+      "appId": "ca-app-pub-4367513013727409~4766211058",
+      "testingDevices": [],
+      "tagForChildDirectedTreatment": false,
+      "tagForUnderAgeOfConsent": false,
+      "maxAdContentRating": "G"
+    }
+  }
+}
