@@ -1,12 +1,52 @@
-# React + Vite
+# FinanceFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación moderna de gestión de finanzas personales construida con React para controlar ingresos, gastos y metas de ahorro de manera intuitiva.
 
-Currently, two official plugins are available:
+## Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dashboard Interactivo**: Visualización de balance con gráficos de ingresos vs gastos en tiempo real
+- **Gestión de Transacciones**: Registro rápido con categorías personalizables y historial completo
+- **Metas de Ahorro**: Crear objetivos específicos con seguimiento visual del progreso
+- **Calendario Financiero**: Vista mensual de transacciones con resumen diario
+- **Categorías Inteligentes**: Creación dinámica y análisis detallado por categoría
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18
+- Recharts (gráficos)
+- Lucide React (iconos)
+- Tailwind CSS
+- Capacitor (móvil)
+- AdMob (monetización)
+
+## Instalación
+```bash
+git clone https://github.com/tuusuario/financeflow.git
+cd financeflow
+npm install
+npm start
+```
+
+## Compilación Android
+```bash
+npx cap add android
+npx cap sync
+npx cap open android
+```
+
+## Características Destacadas
+
+- Tema oscuro moderno con gradientes
+- Diseño responsive para todos los dispositivos
+- Persistencia de datos con localStorage
+- Sin necesidad de registro o conexión a internet
+- Sistema de anuncios con opción de recompensas
+- Exportación de datos en JSON
+
+## Privacidad
+
+Todos los datos se almacenan localmente en tu dispositivo. No requiere cuenta ni envía información a servidores externos.
+
+## Licencia
+
+MIT License
